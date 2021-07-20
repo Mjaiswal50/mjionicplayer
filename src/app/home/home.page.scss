@@ -1,0 +1,232 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+// INPUT STOPPAGE
+
+// input[type="range"] {
+//   pointer-events: none;
+// }
+
+// input[type="range"]::-webkit-slider-thumb {
+//   pointer-events: none;
+// }
+
+// BASIC STYLING
+
+.container-fluid {
+  background:url(https://png.pngtree.com/thumb_back/fw800/back_pic/02/65/14/80578731f6377af.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100%;
+  padding: 0 0 28px 0;
+  overflow-y: 0px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  backdrop-filter: blur(10px);
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.05);
+}
+
+// ANIMATION VIRTUALIZER STYLING
+@keyframes quiet {
+  15% {
+    transform: scaleY(0.1);
+  }
+  35% {
+    transform: scaleY(0.3);
+  }
+  56% {
+    transform: scaleY(0.4);
+  }
+  60% {
+    transform: scaleY(0.6);
+  }
+  76% {
+    transform: scaleY(0.2);
+  }
+}
+
+@keyframes quietc {
+  10% {
+    transform: scaleY(0.3);
+  }
+  25% {
+    transform: scaleY(0.46);
+  }
+  50% {
+    transform: scaleY(0.35);
+  }
+  75% {
+    transform: scaleY(0.68);
+  }
+  84% {
+    transform: scaleY(0.34);
+  }
+}
+
+@keyframes normal {
+  13% {
+    transform: scaleY(0.6);
+  }
+  21% {
+    transform: scaleY(0.31);
+  }
+  58% {
+    transform: scaleY(0.1);
+  }
+  71% {
+    transform: scaleY(0.2);
+  }
+  76% {
+    transform: scaleY(0.4);
+  }
+}
+@keyframes loud {
+  13% {
+    transform: scaleY(0.1);
+  }
+  25% {
+    transform: scaleY(0.2);
+  }
+  59% {
+    transform: scaleY(0.4);
+  }
+  69% {
+    transform: scaleY(0.5);
+  }
+  82% {
+    transform: scaleY(0.1);
+  }
+}
+
+@keyframes loudc {
+  5% {
+    transform: scaleY(0.23);
+  }
+  50% {
+    transform: scaleY(0.76);
+  }
+  40% {
+    transform: scaleY(0.28);
+  }
+  65% {
+    transform: scaleY(0.13);
+  }
+  76% {
+    transform: scaleY(0.57);
+  }
+}
+
+.boxContainer {
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  --boxSize: 3px;
+  width: 60%;
+}
+
+.box {
+  transform: scaleY(0.1);
+  height: 90%;
+  width: var(--boxSize);
+  background: #000000;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  border-radius: 20px;
+}
+
+.box1 {
+  animation-duration: 1.3s;
+  animation-name: quietc;
+}
+
+.box2 {
+  animation-duration: 2.3s;
+  animation-name: normal;
+}
+
+.box3 {
+  animation-duration: 4.3s;
+  animation-name: loud;
+}
+
+.box4 {
+  animation-duration: 2s;
+  animation-name: loudc;
+}
+
+.box5 {
+  animation-duration: 1.73s;
+  animation-name: quiet;
+}
+
+
+
+//INPUT SLIDER STYLING
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 92%;
+  border-radius: 20px;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 3px;
+  background: rgb(0, 0, 0);
+  border: none;
+  border-radius: 20px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+  background: rgb(0, 0, 0);
+  margin-top: -2px;
+  border-radius: 20px;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: rgb(0, 0, 0);
+}
+.viz{
+border-radius: 50%;
+height:100px;
+width:100px;
+}
+
+@media screen and (max-width: 220px) {
+img {
+    height: 77vw;
+  }
+.viz{
+border-radius: 50%;
+height:33vw;
+width:33vw;
+}
+  .card-body {
+    height: 10vh;
+  }
+  .card {
+    width: 95% !important;
+    height: 95vh !important;
+    margin: 0px !important;
+    padding: 0px !important;
+  }
+  .container-fluid {
+   height: 100vh;
+  }
+}

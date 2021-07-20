@@ -1,0 +1,81 @@
+<ion-content [fullscreen]="true">
+  <div class="container-fluid pt-3">
+    <div class="col-md-12">
+      <div class="row d-flex gap-3 mt-3 align-items-center justify-content-center">
+        <div class="card m-1" style="width: 18rem;">
+          <img class="card-img pl-5 pr-5 pt-5" [src]="mainimg">
+          <div class="boxContainer m-auto">
+            <img src="https://res.cloudinary.com/dtd9fre4r/image/upload/v1626775662/player/spotify_nrnuxy.png"
+              style="height: 40px; margin-top:6px;" alt="">
+            <div [ngClass]="{'box': true, 'box1': isPlaying }"></div>
+            <div [ngClass]="{'box': true, 'box2': isPlaying }" class="box box2"></div>
+            <div [ngClass]="{'box': true, 'box3': isPlaying }" class="box box3"></div>
+            <div [ngClass]="{'box': true, 'box4': isPlaying }" class="box box4"></div>
+            <div [ngClass]="{'box': true, 'box5': isPlaying }" class="box box5"></div>
+            <div [ngClass]="{'box': true, 'box3': isPlaying }" class="box box3"></div>
+            <div [ngClass]="{'box': true, 'box4': isPlaying }" class="box box4"></div>
+            <div [ngClass]="{'box': true, 'box3': isPlaying }" class="box box3"></div>
+            <div [ngClass]="{'box': true, 'box2': isPlaying }" class="box box2"></div>
+            <div [ngClass]="{'box': true, 'box3': isPlaying }" class="box box3"></div>
+            <div [ngClass]="{'box': true, 'box4': isPlaying }" class="box box4"></div>
+            <div [ngClass]="{'box': true, 'box5': isPlaying }" class="box box5"></div>
+            <div [ngClass]="{'box': true, 'box3': isPlaying }" class="box box3"></div>
+            <div [ngClass]="{'box': true, 'box2': isPlaying }" class="box box2"></div>
+            <div [ngClass]="{'box': true, 'box5': isPlaying }" class="box box5"></div>
+            <div [ngClass]="{'box': true, 'box4': isPlaying }" class="box box4"></div>
+            <div [ngClass]="{'box': true, 'box2': isPlaying }" class="box box2"></div>
+            <div [ngClass]="{'box': true, 'box2': isPlaying }" class="box box2"></div>
+            <div [ngClass]="{'box': true, 'box1': isPlaying }" class="box box1"></div>
+            <div [ngClass]="{'box': true, 'box2': isPlaying }" class="box box2"></div>
+            <div [ngClass]="{'box': true, 'box3': isPlaying }" class="box box3"></div>
+            <div [ngClass]="{'box': true, 'box4': isPlaying }" class="box box4"></div>
+            <div [ngClass]="{'box': true, 'box5': isPlaying }" class="box box5"></div>
+            <div [ngClass]="{'box': true, 'box3': isPlaying }" class="box box3"></div>
+            <div [ngClass]="{'box': true, 'box2': isPlaying }" class="box box2"></div>
+            <div [ngClass]="{'box': true, 'box5': isPlaying }" class="box box5"></div>
+          </div>
+
+          <div class="card-body ">
+            <div class=" row justify-content-between ">
+              <h1 class="card-title ml-2 " style="color:black;">{{albName | uppercase}} </h1>
+              <i class="bi bi-heart-fill mr-2 mt-1" style="color:black" (click)="favchange()" *ngIf="fav"></i>
+              <i class="bi bi-heart mr-2 mt-1" style="color:black" (click)="favchange()" *ngIf="!fav"></i>
+            </div>
+            <div class=" row justify-content-center pb-3 mt-1 mr-1">
+              <audio id="player2" autoplay>
+                <source [src]="trackz" type="audio/mpeg">
+              </audio>
+              <input type="range" class="" id="rangeid" min="0" [max]="29" #rangezy (change)="audiodrag(rangezy.value)"
+                [value]="currentsongduration" />
+            </div>
+          </div>
+
+          <div [ngSwitch]="visualno" (click)="visualchange()" class="row ml-auto mr-auto">
+            <img *ngSwitchCase="0" class="viz"
+              src="https://res.cloudinary.com/dtd9fre4r/image/upload/v1626780781/player/4veT_ri17sv.gif">
+            <img *ngSwitchCase="1" class="viz"
+              src="https://res.cloudinary.com/dtd9fre4r/image/upload/v1626775685/player/xxx_tjmccf.gif">
+            <img *ngSwitchCase="2"  class="viz"
+              src="https://res.cloudinary.com/dtd9fre4r/image/upload/v1626779517/player/fxVE_l1bf9u.gif">
+          </div>
+
+          <div class="row d-flex align-items-center justify-content-between" style=" color:black">
+            <img class="mr-1" style="height:22px; width:22px" *ngIf="!shuffler" (click)="shufflelist()"
+              src="https://res.cloudinary.com/dtd9fre4r/image/upload/v1626775656/player/s0_vux7ne.png">
+            <img class="mr-1" style="height:22px; width:22px" *ngIf="shuffler" (click)="shufflelist()"
+              src="https://res.cloudinary.com/dtd9fre4r/image/upload/v1626775658/player/s1_f8qwex.png">
+            <i class="bi bi-skip-start-fill" style="font-size:33px;" (click)="songprev()"></i>
+            <i class="bi bi-play-circle-fill " style="font-size:45px;" (click)="playpause()" *ngIf="!isPlaying"></i>
+            <i class="bi bi-pause-circle-fill" style="font-size:45px;" (click)="playpause()" *ngIf="isPlaying"></i>
+            <i class="nexter bi bi-skip-end-fill " style="font-size:33px;" (click)="songnext()"></i>
+            <img class="mr-1" style="height:22px; width:22px" *ngIf="!isRepeat" (click)="setRepeat()"
+              src="https://res.cloudinary.com/dtd9fre4r/image/upload/v1626775632/player/r0_xqdhab.png">
+            <img class="mr-1" style="height:22px; width:22px" *ngIf="isRepeat" (click)="setRepeat()"
+              src="https://res.cloudinary.com/dtd9fre4r/image/upload/v1626775650/player/r1_gdkxae.png">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</ion-content>
